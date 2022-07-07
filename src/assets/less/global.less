@@ -1,3 +1,16 @@
+@basePixel: 6, 8, 10, 12, 14, 16, 18, 20, 26;
+
+/*
+* @description: margin-right
+* @eg: .mr8 { margin-right: 8px; }
+*/
+each(@basePixel, {
+  .mr@{value} {
+    margin-right: unit(@value, px);
+  }
+})
+
+/* ----------- */
 html,
 body {
   width: 100%;
@@ -6,17 +19,28 @@ body {
   background: #f1f2f9;
 }
 
-@basePixel: 6, 8, 10, 12, 14, 16, 18, 20, 26;
+p {
+  margin: 0;
+}
 
-/*
-* @description: padding-left
-* @eg: .pl-8 { padding-left: 8px; }
-*/
-each(@basePixel, {
-  .pl-@{value} {
-    padding-left: unit(@value, px);
-  }
-})
+// 副文本样式
+.text-extra {
+  line-height: 1.4;
+  color: #999;
+}
+
+.text-base {
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.article-title {
+  font-size: 20px;
+}
+
+.cursor {
+  cursor: pointer;
+}
 
 /* 覆盖卡片样式 */
 .web-card.t-card {
