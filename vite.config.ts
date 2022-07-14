@@ -17,6 +17,7 @@ export default defineConfig({
         // 覆盖TDesgin的less变量
         modifyVars: {
           "@border-radius": "4px",
+          "@brand-color": "#777777",
         },
       },
     },

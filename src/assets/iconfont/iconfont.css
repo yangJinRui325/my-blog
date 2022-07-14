@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 583064 */
+  src: url('iconfont.woff2?t=1657785088069') format('woff2'),
+       url('iconfont.woff?t=1657785088069') format('woff'),
+       url('iconfont.ttf?t=1657785088069') format('truetype'),
+       url('iconfont.svg?t=1657785088069#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.b-menu-article:before {
+  content: "\e6d2";
+}
+
+.b-menu-favorites:before {
+  content: "\e627";
+}
+
+.b-menu-box:before {
+  content: "\e620";
+}
+
+.b-menu-file:before {
+  content: "\e666";
+}
+
+.b-menu-classify:before {
+  content: "\e706";
+}
+
+.b-menu-tool:before {
+  content: "\e71a";
+}
+
+.b-menu-special:before {
+  content: "\ea3a";
+}
+
+.b-menu-tags:before {
+  content: "\e7fa";
+}
+
+.b-menu-books:before {
+  content: "\e618";
+}
+
+.b-menu-home:before {
+  content: "\e625";
+}
+
+.b-menu-about:before {
+  content: "\e655";
+}
+
+.b-menu-talk:before {
+  content: "\e8c8";
+}
+
+.b-menu-note:before {
+  content: "\e60c";
+}
+
+.b-4fanhuidingbubai:before {
+  content: "\e85e";
+}
+

@@ -1,4 +1,4 @@
-@basePixel: 6, 8, 10, 12, 14, 16, 18, 20, 26;
+@basePixel: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 26;
 
 /*
 * @description: margin-right
@@ -7,6 +7,16 @@
 each(@basePixel, {
   .mr@{value} {
     margin-right: unit(@value, px);
+  }
+})
+
+/*
+* @description: margin-left
+* @eg: .ml8 { margin-left: 8px; }
+*/
+each(@basePixel, {
+  .ml@{value} {
+    margin-left: unit(@value, px);
   }
 })
 

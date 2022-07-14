@@ -6,7 +6,7 @@
 <style lang="less" scoped>
 .header-wrapper {
   width: 100%;
-  height: 50px;
+  height: @header-height;
   background: @base-bg-white;
 }
 </style>
