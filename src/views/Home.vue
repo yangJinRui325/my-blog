@@ -1,14 +1,8 @@
 <template>
-  <div>娃哈哈</div>
+  <div>我是首页哇</div>
 </template>
-<script lang="ts">
-import { defineComponent } from "vue";
-export default defineComponent({
-  data() {
-    return {};
-  },
-  components: {},
-});
+<script setup lang="ts">
+
 </script>
 <style lang="less" scoped>
 </style>

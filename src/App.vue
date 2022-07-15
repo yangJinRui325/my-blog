@@ -49,7 +49,7 @@ function sideCollapsedChange(isCollapsed: boolean) {
   margin-left: 220px;
 
   &-collapsed {
-    margin-left: 64px;
+    margin-left: 70px;
   }
 }
 </style>>

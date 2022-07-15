@@ -22,14 +22,14 @@
     {
       "icon_id": "3775172",
       "name": "宝箱",
-      "font_class": "menu-box",
+      "font_class": "menu-treasure",
       "unicode": "e620",
       "unicode_decimal": 58912
     },
     {
       "icon_id": "5809108",
       "name": "归档",
-      "font_class": "menu-file",
+      "font_class": "menu-archived",
       "unicode": "e666",
       "unicode_decimal": 58982
     },
@@ -85,7 +85,7 @@
     {
       "icon_id": "18166538",
       "name": "咖啡,休息,喝,茶杯,杯",
-      "font_class": "menu-talk",
+      "font_class": "menu-tattle",
       "unicode": "e8c8",
       "unicode_decimal": 59592
     },

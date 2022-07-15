@@ -1,9 +1,9 @@
 @font-face {
   font-family: "iconfont"; /* Project id 583064 */
-  src: url('iconfont.woff2?t=1657785088069') format('woff2'),
-       url('iconfont.woff?t=1657785088069') format('woff'),
-       url('iconfont.ttf?t=1657785088069') format('truetype'),
-       url('iconfont.svg?t=1657785088069#iconfont') format('svg');
+  src: url('iconfont.woff2?t=1657877214269') format('woff2'),
+       url('iconfont.woff?t=1657877214269') format('woff'),
+       url('iconfont.ttf?t=1657877214269') format('truetype'),
+       url('iconfont.svg?t=1657877214269#iconfont') format('svg');
 }
 
 .iconfont {
@@ -22,11 +22,11 @@
   content: "\e627";
 }
 
-.b-menu-box:before {
+.b-menu-treasure:before {
   content: "\e620";
 }
 
-.b-menu-file:before {
+.b-menu-archived:before {
   content: "\e666";
 }
 
@@ -58,7 +58,7 @@
   content: "\e655";
 }
 
-.b-menu-talk:before {
+.b-menu-tattle:before {
   content: "\e8c8";
 }
 

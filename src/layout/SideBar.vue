@@ -1,43 +1,53 @@
 <template>
   <aside class="bar-wrapper narrow-scrollbar">
     <t-menu theme="light" :collapsed="collapsed" class="sidebar-inner" :width="asideWidth" @change="changeHandler">
-      <template #logo>
-        <t-card :bordered="false" shadow class="web-card">
-          <div class="user-head" flex="dir:top main:center cross:center">
-            <t-avatar size="100px" class="user-head__photo"> W </t-avatar>
-            <h1 class="text-base cursor">漪洛</h1>
-            <p class="text-extra">漪洛的个人小破站</p>
-            <p class="user-head__icon">
-              <AppIcon class="mr6" />
-              <BacktopRectangleIcon class="mr6" />
-              <BarcodeIcon />
-            </p>
-          </div>
-        </t-card>
-      </template>
+      <!-- <template #logo> -->
+      <t-card :bordered="false" shadow class="web-card">
+        <div class="user-head" flex="dir:top main:center cross:center">
+          <t-avatar size="100px" class="user-head__photo"> W </t-avatar>
+          <h1 class="text-base cursor">漪洛</h1>
+          <p class="text-extra">漪洛的个人小破站</p>
+          <p class="user-head__icon">
+            <AppIcon class="mr6" />
+            <BacktopRectangleIcon class="mr6" />
+            <BarcodeIcon />
+          </p>
+        </div>
+      </t-card>
+      <!-- </template> -->
       <t-menu-group v-for="side in asideMenu" :key="side.code" :title="side.name">
         <!-- 有二级 -->
         <template v-for="sideItem in side.children">
           <template v-if="sideItem.children?.length">
             <t-submenu :key="sideItem.code" :value="sideItem.code" mode="popup">
               <template #icon>
-                <SvgIcon :icon="`b-menu-${sideItem.icon}`" className="ml10 mr6"></SvgIcon>
+                <div class="b-menu-icon-slot">
+                  <p class="b-menu-icon-slot__svg">
+                    <SvgIcon :icon="`b-menu-${sideItem.icon}`" className="ml6 mr6"></SvgIcon>
+                  </p>
+                  <p class="b-menu-icon-slot__tip">{{ sideItem.name }}</p>
+                </div>
               </template>
               <template #title>
                 <span>{{ sideItem.name }}</span>
               </template>
-              <t-menu-item v-for="item in sideItem.children || []" :key="item.code" :value="item.code">
+              <t-menu-item v-for="item in sideItem.children || []" :key="item.code" :value="item.code" :to="item.path">
                 <template #icon>
-                  <SvgIcon :icon="`b-menu-${item.icon}`" className="ml10 mr6"></SvgIcon>
+                  <SvgIcon :icon="`b-menu-${item.icon}`" className="ml6 mr6"></SvgIcon>
                 </template>
                 {{ item.name }}
               </t-menu-item>
             </t-submenu>
           </template>
           <template v-else>
-            <t-menu-item :key="sideItem.code" :value="sideItem.code">
+            <t-menu-item :key="sideItem.code" :value="sideItem.code" :to="sideItem.path">
               <template #icon>
-                <SvgIcon :icon="`b-menu-${sideItem.icon}`" className="ml10 mr6"></SvgIcon>
+                <div class="b-menu-icon-slot">
+                  <p class="b-menu-icon-slot__svg">
+                    <SvgIcon :icon="`b-menu-${sideItem.icon}`" className="ml6 mr6"></SvgIcon>
+                  </p>
+                  <p class="b-menu-icon-slot__tip">{{ sideItem.name }}</p>
+                </div>
               </template>
               {{ sideItem.name }}
             </t-menu-item>
@@ -76,18 +86,20 @@ interface Emit {
 const emit = defineEmits<Emit>()
 
 
-const asideWidth = ['220px', '64px']
+const asideWidth = ['220px', '70px']
 const asideMenu = [
   {
     name: "导航",
     id: "root1",
     code: "one_nav",
+    path: null,
     children: [
       {
         name: "首页",
         id: "secend1-1",
         code: "two_home",
         icon: "home",
+        path: "/"
       },
       {
         name: "笔记",
@@ -95,18 +107,21 @@ const asideMenu = [
         code: "two_note",
         icon: "note",
         children: [],
+        path: "/note"
       },
       {
         name: "杂谈",
         id: "secend1-3",
-        code: "two_talk",
-        icon: "talk",
+        code: "two_tattle",
+        icon: "tattle",
+        path: "/tattle"
       },
       {
         name: "关于",
         id: "secend1-4",
         code: "two_about",
         icon: "about",
+        path: "/about"
       },
     ],
   },
@@ -114,6 +129,7 @@ const asideMenu = [
     name: "组成",
     id: "root2",
     code: "one_form",
+    path: null,
     children: [
       {
         name: "文章",
@@ -127,13 +143,15 @@ const asideMenu = [
             code: "three_special",
             icon: "special",
             children: [],
+            path: "/special"
           },
           {
             name: "归档",
             id: "third2-1-2",
-            code: "three_file",
-            icon: "file",
+            code: "three_archived",
+            icon: "archived",
             children: [],
+            path: "/archived"
           },
           {
             name: "分类",
@@ -141,6 +159,7 @@ const asideMenu = [
             code: "three_classify",
             icon: "classify",
             children: [],
+            path: "/classify"
           },
           {
             name: "标签",
@@ -148,14 +167,16 @@ const asideMenu = [
             code: "three_tags",
             icon: "tags",
             children: [],
+            path: "/tags"
           },
         ],
       },
       {
         name: "百宝箱",
         id: "secend2-2",
-        code: "two_box",
-        icon: "box",
+        code: "two_treasure",
+        icon: "treasure",
+        path: null,
         children: [
           {
             name: "前端工具",
@@ -163,6 +184,7 @@ const asideMenu = [
             code: "three_tool",
             icon: "tool",
             children: [],
+            path: "/tool"
           },
           {
             name: "推荐书籍",
@@ -170,6 +192,7 @@ const asideMenu = [
             code: "three_books",
             icon: "books",
             children: [],
+            path: "/books"
           },
           {
             name: "收藏夹",
@@ -177,6 +200,7 @@ const asideMenu = [
             code: "three_favorites",
             icon: "favorites",
             children: [],
+            path: "/favorites"
           },
         ],
       },
@@ -190,6 +214,26 @@ const asideMenu = [
   height: calc(100% - @header-height);
   background: @base-bg-white;
 
+  :deep(.t-is-collapsed) {
+    .b-menu-icon-slot__tip {
+      display: block;
+    }
+
+    .t-menu__item {
+      &:hover {
+        background: #ccc;
+
+        .b-menu-icon-slot__svg {
+          transform: translateY(-100%);
+        }
+
+        .b-menu-icon-slot__tip {
+          transform: translateY(-100%);
+        }
+      }
+    }
+  }
+
   :deep(.t-default-menu__inner) {
     .t-menu__logo {
       height: auto;
@@ -202,10 +246,25 @@ const asideMenu = [
         border-radius: 0;
 
         .t-menu__content {
-          margin-left: 10px;
+          padding-left: 10px;
         }
       }
     }
+  }
+}
+
+.b-menu-icon-slot {
+  height: 100%;
+  overflow: hidden;
+
+  &__svg {
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.38, 0, 0.24, 1);
+  }
+
+  &__tip {
+    display: none;
+    transition: all 0.3s cubic-bezier(0.38, 0, 0.24, 1);
   }
 }
 
