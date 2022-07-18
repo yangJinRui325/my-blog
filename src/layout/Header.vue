@@ -5,6 +5,9 @@
 </script>
 <style lang="less" scoped>
 .header-wrapper {
+  position: fixed;
+  top: 0;
+  z-index: 10;
   width: 100%;
   height: @header-height;
   background: @base-bg-white;

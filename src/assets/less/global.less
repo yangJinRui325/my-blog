@@ -8,44 +8,48 @@ each(@basePixel, {
   .mr@{value} {
     margin-right: unit(@value, px);
   }
-})
-
-/*
-* @description: margin-left
-* @eg: .ml8 { margin-left: 8px; }
-*/
-each(@basePixel, {
   .ml@{value} {
     margin-left: unit(@value, px);
   }
+  .mt@{value} {
+    margin-top: unit(@value, px);
+  }
+  .mb@{value} {
+    margin-bottom: unit(@value, px);
+  }
+  .pl@{value}{
+    padding-left: unit(@value, px);
+  }
+  .pr@{value}{
+    padding-right: unit(@value, px);
+  }
+  .pt@{value}{
+    padding-top: unit(@value, px);
+  }
+  .pb@{value}{
+    padding-bottom: unit(@value, px);
+  }
 })
 
-/* ----------- */
-html,
-body {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  background: #f1f2f9;
-}
-
-p {
-  margin: 0;
-}
 
 // 副文本样式
 .text-extra {
   line-height: 1.4;
-  color: #999;
+  color: @base-color-999;
 }
 
 .text-base {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .article-title {
   font-size: 20px;
+}
+
+.article-description {
+  line-height: 2;
+  color: @base-description-color;
 }
 
 .cursor {

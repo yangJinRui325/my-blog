@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  list-style: none;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: @base-bg2;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue",
+    sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+p,
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+// ::-webkit-scrollbar-corner {
+//   background: red;
+// }
+::-webkit-scrollbar-thumb {
+  border-radius: @base-border-radius;
+  background: #cbcbcb;
+}

@@ -1,19 +1,14 @@
 <template>
-  <t-config-provider :global-config="globalConfig" class="website-container box-shadow-lg">
+  <t-config-provider :global-config="globalConfig" class="website-container box-shadow-lg header-fixed"
+    :class="layoutClass">
     <Header></Header>
     <SideBar @onChange="sideCollapsedChange"></SideBar>
     <div class="website-inner" :class="{ 'website-inner-collapsed': collapsed }">
       <router-view></router-view>
     </div>
-    <!-- <t-row :gutter="16">
-          <t-col span="3">
-          </t-col>
-          <t-col span="21">
-            <router-view></router-view>
-          </t-col>
-        </t-row> -->
   </t-config-provider>
 </template>
+
 <script setup lang="ts">
 import SideBar from "@/layout/SideBar.vue";
 import Header from "@/layout/Header.vue";
@@ -26,6 +21,8 @@ const collapsed = ref(false)
 function sideCollapsedChange(isCollapsed: boolean) {
   collapsed.value = isCollapsed
 }
+
+const layoutClass: string = ''
 </script>
 <style>
 #app {
@@ -41,6 +38,15 @@ function sideCollapsedChange(isCollapsed: boolean) {
   max-width: 1200px;
   width: 1200px;
   margin: 0 auto;
+
+  &.full {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  &.header-fixed {
+    padding-top: @header-height;
+  }
 }
 
 .website-inner {

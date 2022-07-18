@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5732293",
+      "name": "分类",
+      "font_class": "action-org",
+      "unicode": "e65e",
+      "unicode_decimal": 58974
+    },
+    {
+      "icon_id": "7239931",
+      "name": "tags",
+      "font_class": "action-tags",
+      "unicode": "e75d",
+      "unicode_decimal": 59229
+    },
+    {
+      "icon_id": "11536341",
+      "name": "日历",
+      "font_class": "action-calendar",
+      "unicode": "e797",
+      "unicode_decimal": 59287
+    },
+    {
       "icon_id": "16545883",
       "name": "栏目",
       "font_class": "menu-article",
