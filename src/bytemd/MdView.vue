@@ -1,9 +1,7 @@
 <template>
-  <article class="article-wrapper">
-
-  </article>
+  <div></div>
 </template>
-<!-- 'ArticleDetails' -->
+<!-- 'MdView' -->
 <script lang="ts" setup>
 </script>
 <style lang="less" scoped>

@@ -1,5 +1,5 @@
 import type { RouteRecordRaw } from "vue-router";
-import BlankView from "../../components/BlankView.vue";
+import BlankView from "@/components/BlankView.vue";
 
 const article: Array<RouteRecordRaw> = [
   {
@@ -10,22 +10,27 @@ const article: Array<RouteRecordRaw> = [
       {
         path: "special",
         name: "Special",
-        component: () => import('@v/Special.vue'),
+        component: () => import('@v/article/Special.vue'),
       },
       {
         path: "archived",
         name: "Archived",
-        component: () => import('@v/Archived.vue'),
+        component: () => import('@v/article/Archived.vue'),
       },
       {
         path: "classify",
         name: "Classify",
-        component: () => import('@v/Classify.vue'),
+        component: () => import('@v/article/Classify.vue'),
       },
       {
         path: "tags",
         name: "Tags",
-        component: () => import('@v/Tags.vue'),
+        component: () => import('@v/article/Tags.vue'),
+      },
+      {
+        path: ":id",
+        name: 'Details',
+        component: () => import('@v/article/ArticleDetails.vue'),
       }
     ]
   }

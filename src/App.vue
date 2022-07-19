@@ -51,7 +51,7 @@ const layoutClass: string = ''
 
 .website-inner {
   display: grid;
-  grid-template-columns: auto 200px;
+  grid-template-columns: auto 240px;
   margin-left: 220px;
 
   &-collapsed {
