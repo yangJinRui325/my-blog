@@ -15,6 +15,11 @@ const feature: Array<RouteRecordRaw> = [
     path: "/about",
     name: "About",
     component: () => import("@v/About.vue"),
+  },
+  {
+    path: "/viewer",
+    name: "Viewer",
+    component: () => import("@/bytemd/Viewer.vue"),
   }
 ]
 export default feature

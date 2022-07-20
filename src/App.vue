@@ -1,28 +1,15 @@
 <template>
-  <t-config-provider :global-config="globalConfig" class="website-container box-shadow-lg header-fixed"
-    :class="layoutClass">
-    <Header></Header>
-    <SideBar @onChange="sideCollapsedChange"></SideBar>
-    <div class="website-inner" :class="{ 'website-inner-collapsed': collapsed }">
-      <router-view></router-view>
-    </div>
+  <t-config-provider :global-config="globalConfig" class="website-container box-shadow-lg">
+    <router-view></router-view>
   </t-config-provider>
 </template>
 
 <script setup lang="ts">
-import SideBar from "@/layout/SideBar.vue";
-import Header from "@/layout/Header.vue";
 import { merge } from "lodash";
+
 import enConfig from "tdesign-vue-next/es/locale/en_US";
-import { ref } from "vue";
 const globalConfig = merge(enConfig);
 
-const collapsed = ref(false)
-function sideCollapsedChange(isCollapsed: boolean) {
-  collapsed.value = isCollapsed
-}
-
-const layoutClass: string = ''
 </script>
 <style>
 #app {
@@ -50,9 +37,8 @@ const layoutClass: string = ''
 }
 
 .website-inner {
-  display: grid;
-  grid-template-columns: auto 240px;
   margin-left: 220px;
+  transition: all 0.3s;
 
   &-collapsed {
     margin-left: 70px;

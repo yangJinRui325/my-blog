@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from "vue-router";
-import Home from "@v/Home.vue";
+import Index from "@v/Index.vue";
 import article from "./modules/article";
 import feature from "./modules/feature";
 import treasure from "./modules/treasure";
@@ -8,8 +8,13 @@ import treasure from "./modules/treasure";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
+    name: "Index",
+    component: Index,
+  },
+  {
+    path: "/home",
     name: "Home",
-    component: Home,
+    component: () => import("@v/Home.vue"),
   },
   {
     path: "/login",

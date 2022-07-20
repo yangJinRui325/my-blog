@@ -1,5 +1,5 @@
 import type { RouteRecordRaw } from "vue-router";
-import BlankView from "../../components/BlankView.vue";
+import BlankView from "@/components/BlankView.vue";
 
 const treasure: Array<RouteRecordRaw> = [
   {
@@ -10,17 +10,17 @@ const treasure: Array<RouteRecordRaw> = [
       {
         path: "tool",
         name: "Tool",
-        component: () => import('@v/Tool.vue'),
+        component: () => import('@v/treasure/Tool.vue'),
       },
       {
         path: "books",
         name: "Books",
-        component: () => import('@v/Books.vue'),
+        component: () => import('@v/treasure/Books.vue'),
       },
       {
         path: "favorites",
         name: "Favorites",
-        component: () => import('@v/Favorites.vue'),
+        component: () => import('@v/treasure/Favorites.vue'),
       }
     ]
   }

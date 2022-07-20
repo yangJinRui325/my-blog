@@ -1,12 +1,11 @@
 <template>
-  <aside class="bar-wrapper narrow-scrollbar">
+  <aside class="bar-wrapper narrow-scrollbar" :class="{ 'is-header': isShowHeader }">
     <t-menu theme="light" :collapsed="collapsed" class="sidebar-inner" :width="asideWidth" @change="changeHandler">
-      <!-- <template #logo> -->
       <t-card :bordered="false" shadow class="web-card">
         <div class="user-head" flex="dir:top main:center cross:center">
-          <t-avatar size="100px" class="user-head__photo"> W </t-avatar>
-          <h1 class="text-base cursor">漪洛</h1>
-          <p class="text-extra">漪洛的个人小破站</p>
+          <!-- <t-avatar size="100px" class="user-head__photo"> W </t-avatar> -->
+          <!-- <h1 class="text-base cursor">漪洛</h1> -->
+          <!-- <p class="text-extra">漪洛的个人小破站</p> -->
           <p class="user-head__icon">
             <AppIcon class="mr6" />
             <BacktopRectangleIcon class="mr6" />
@@ -14,7 +13,6 @@
           </p>
         </div>
       </t-card>
-      <!-- </template> -->
       <t-menu-group v-for="side in asideMenu" :key="side.code" :title="side.name">
         <!-- 有二级 -->
         <template v-for="sideItem in side.children">
@@ -68,7 +66,8 @@ import {
   BacktopRectangleIcon,
   BarcodeIcon,
 } from "tdesign-icons-vue-next";
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import { useStore } from "vuex";
 
 const collapsed = ref(false);
 const changeHandler = (active: any) => {
@@ -85,6 +84,8 @@ interface Emit {
 }
 const emit = defineEmits<Emit>()
 
+const store = useStore()
+const isShowHeader = computed(() => store.state.isShowHeader)
 
 const asideWidth = ['220px', '70px']
 const asideMenu = [
@@ -211,8 +212,12 @@ const asideMenu = [
 <style lang="less" scoped>
 .bar-wrapper {
   position: fixed;
-  height: calc(100% - @header-height);
+  height: 100%;
   background: @base-bg-white;
+
+  &.is-header {
+    height: calc(100% - @header-height);
+  }
 
   :deep(.t-is-collapsed) {
     .b-menu-icon-slot__tip {
