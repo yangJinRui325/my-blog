@@ -1,5 +1,5 @@
 <template>
-  <t-config-provider :global-config="globalConfig" class="website-container box-shadow-lg">
+  <t-config-provider :global-config="globalConfig">
     <router-view></router-view>
   </t-config-provider>
 </template>
@@ -21,27 +21,4 @@ const globalConfig = merge(enConfig);
 }
 </style>
 <style scoped lang="less">
-.website-container {
-  max-width: 1200px;
-  width: 1200px;
-  margin: 0 auto;
-
-  &.full {
-    max-width: 100%;
-    width: 100%;
-  }
-
-  &.header-fixed {
-    padding-top: @header-height;
-  }
-}
-
-.website-inner {
-  margin-left: 220px;
-  transition: all 0.3s;
-
-  &-collapsed {
-    margin-left: 70px;
-  }
-}
 </style>>

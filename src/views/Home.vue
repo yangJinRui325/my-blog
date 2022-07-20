@@ -1,5 +1,5 @@
 <template>
-  <div class="website-container box-shadow-lg" :class="{ layoutClass, 'header-fixed': isShowHeader }">
+  <div class="website-container box-shadow-lg" :class="[layoutClass, { 'header-fixed': isShowHeader }]">
     <SideBar @onChange="sideCollapsedChange"></SideBar>
     <div class="website-inner" :class="{ 'website-inner-collapsed': collapsed }">
       <div class="home-wrapper">
@@ -39,7 +39,7 @@ function sideCollapsedChange(isCollapsed: boolean) {
 }
 
 // 用来定义宽度的
-const layoutClass = ref<string>('')
+const layoutClass = ref<string>('full')
 
 // 是否展示头部
 const store = useStore()
