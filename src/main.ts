@@ -12,6 +12,8 @@ import TDesign from "tdesign-vue-next/esm";
 // 引入组件库全局样式资源
 import "tdesign-vue-next/esm/style/index.js";
 
+import MyUI from "@/components/index"
+
 import store from "@/store/index"
 
-createApp(App).use(router).use(TDesign).use(store).mount("#app");
+createApp(App).use(router).use(TDesign).use(MyUI).use(store).mount("#app");

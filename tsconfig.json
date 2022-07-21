@@ -13,6 +13,12 @@
     "lib": ["esnext", "dom"],
     "skipLibCheck": true,
     "noImplicitAny": false, // 是否在表达式和声明上有隐含的any类型时报错
+    "baseUrl": "./", // 解析非相对模块的基础地址，默认是当前目录
+    "paths": { // 路径映射，相对于baseUrl
+      "@/*": ["src/*"],
+      "@v/*": ["src/views/*"],
+      "@r/*": ["src/router/*"],
+    }
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "references": [{ "path": "./tsconfig.node.json" }]

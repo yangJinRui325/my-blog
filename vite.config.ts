@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
+const projectRootDir = path.resolve(__dirname);
 // 按需引入tDesign
 // import AutoImport from "unplugin-auto-import/vite";
 // import Components from "unplugin-vue-components/vite";
@@ -42,9 +43,9 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
-      "@v": path.resolve(__dirname, "./src/views"),
-      "@r": path.resolve(__dirname, "./src/router"),
+      "@": path.resolve(projectRootDir, "src"),
+      "@v": path.resolve(projectRootDir, "src/views"),
+      "@r": path.resolve(projectRootDir, "src/router"),
     },
   },
   server: {

@@ -1,3 +1,9 @@
+@font-face {
+  font-family: "myfont";
+  src: url(../font/kust.woff.ttf);
+  font-style: normal;
+  font-weight: normal;
+}
 @basePixel: 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 26;
 
 /*
@@ -31,6 +37,24 @@ each(@basePixel, {
   }
 })
 
+// 水平垂直居中
+.pos-center() {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+.pos-h-center() {
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.trans-center() {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 // 副文本样式
 .text-extra {

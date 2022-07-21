@@ -17,7 +17,10 @@ const prop = withDefaults(defineProps<Props>(), {
 })
 </script>
 <style lang="less" scoped>
+@import '@/assets/less/global.less';
+
 .divide-line {
+  .trans-center();
   position: relative;
   width: 100%;
   text-align: center;
