@@ -213,7 +213,7 @@ const asideMenu = [
 .bar-wrapper {
   position: fixed;
   height: 100%;
-  background: @base-bg-white;
+  background: @base-ba-white-1;
 
   &.is-header {
     height: calc(100% - @header-height);

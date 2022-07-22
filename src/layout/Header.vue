@@ -10,6 +10,6 @@
   z-index: 10;
   width: 100%;
   height: @header-height;
-  background: @base-bg-white;
+  background: @base-ba-white-1;
 }
 </style>
