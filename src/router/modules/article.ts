@@ -1,11 +1,12 @@
 import type { RouteRecordRaw } from "vue-router";
 import BlankView from "@/components/BlankView.vue";
+import Basic from "@/layout/Basic.vue";
 
 const article: Array<RouteRecordRaw> = [
   {
     path: "/article",
     name: "Article",
-    component: BlankView,
+    component: Basic,
     children: [
       {
         path: "special",

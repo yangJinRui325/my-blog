@@ -1,5 +1,5 @@
 <template>
-  <aside class="bar-wrapper narrow-scrollbar" :class="{ 'is-header': isShowHeader }">
+  <aside class="aside-wrapper narrow-scrollbar" :class="{ 'is-collapsed': isShowDrawer }">
     <t-menu theme="light" :collapsed="collapsed" class="sidebar-inner" :width="asideWidth" @change="changeHandler">
       <t-card :bordered="false" shadow class="web-card">
         <div class="user-head" flex="dir:top main:center cross:center">
@@ -70,9 +70,7 @@ import { ref, computed } from "vue";
 import { useStore } from "vuex";
 
 const collapsed = ref(false);
-const changeHandler = (active: any) => {
-  console.log("change", active);
-};
+
 const changeCollapsed = () => {
   collapsed.value = !collapsed.value;
   emit('onChange', collapsed.value)
@@ -85,9 +83,9 @@ interface Emit {
 const emit = defineEmits<Emit>()
 
 const store = useStore()
-const isShowHeader = computed(() => store.state.isShowHeader)
+const isShowDrawer = computed(() => store.state.isShowDrawer)
 
-const asideWidth = ['220px', '70px']
+const asideWidth = ref('220px')
 const asideMenu = [
   {
     name: "导航",
@@ -210,13 +208,17 @@ const asideMenu = [
 ];
 </script>
 <style lang="less" scoped>
-.bar-wrapper {
+.aside-wrapper {
   position: fixed;
+  width: 220px;
   height: 100%;
+  top: 0;
   background: @base-ba-white-1;
+  transition: all 0.3s cubic-bezier(0.38, 0, 0.24, 1);
 
-  &.is-header {
-    height: calc(100% - @header-height);
+  &.is-collapsed {
+    overflow: hidden;
+    transform: translateX(-220px)
   }
 
   :deep(.t-is-collapsed) {
