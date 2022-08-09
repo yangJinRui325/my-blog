@@ -1,15 +1,7 @@
 <template>
-  <div
-    class="index-wrapper"
-    ref="indexRef"
-    :style="{ backgroundImage: `url(${bgLink})` }"
-  >
+  <div class="index-wrapper" ref="indexRef" :style="{ backgroundImage: `url(${bgLink})` }">
     <t-card :bordered="false" shadow class="web-card index-inner">
-      <t-avatar
-        class="inner-avatar"
-        size="100px"
-        image="https://tdesign.gtimg.com/site/avatar.jpg"
-      />
+      <t-avatar class="inner-avatar" size="100px" image="https://tdesign.gtimg.com/site/avatar.jpg" />
       <p class="inner-title">yiluo′s blog</p>
       <DivideLine width="80%" pos="center" />
       <ul class="index-nav">
@@ -56,7 +48,7 @@ const bgLink = computed(
     new URL(`/src/assets/image/index_bg${random.value}.jpg`, import.meta.url)
 );
 
-const goPage: vide = (path: string) => {
+const goPage = (path: string): void => {
   $router.push(path);
 };
 </script>
@@ -110,6 +102,7 @@ const goPage: vide = (path: string) => {
     -webkit-box-pack: center;
     -webkit-box-align: center;
     font-size: 18px;
+
     li {
       font-family: "myfont";
       font-size: 20px;
@@ -121,19 +114,24 @@ const goPage: vide = (path: string) => {
     }
   }
 }
+
 .nav-item {
   height: 36px;
   overflow: hidden;
+
   &:hover {
+
     .nav-item-en,
     .nav-item-cn {
       opacity: 1;
       transform: translateY(-100%);
     }
   }
+
   &-en {
     transition: all 0.3s cubic-bezier(0.38, 0, 0.24, 1);
   }
+
   &-cn {
     opacity: 0;
     color: #985e6d;

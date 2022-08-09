@@ -1,6 +1,7 @@
 <template>
   <aside class="aside-wrapper narrow-scrollbar" :class="{ 'is-collapsed': isShowDrawer }">
-    <t-menu theme="light" :collapsed="collapsed" class="sidebar-inner" :width="asideWidth" @change="changeHandler">
+    <t-menu ref="asideRef" theme="light" :collapsed="collapsed" class="sidebar-inner" :width="asideWidth"
+      @change="changeHandler">
       <t-card :bordered="false" shadow class="web-card">
         <div class="user-head" flex="dir:top main:center cross:center">
           <!-- <t-avatar size="100px" class="user-head__photo"> W </t-avatar> -->
@@ -66,26 +67,35 @@ import {
   BacktopRectangleIcon,
   BarcodeIcon,
 } from "tdesign-icons-vue-next";
-import { ref, computed } from "vue";
+import { ref, computed, watch } from "vue";
 import { useStore } from "vuex";
+
+// 获取当前侧边栏的宽度
+const asideRef = ref()
+const getAsideWidth = (): number => {
+  return asideRef.value.style.offsetWidth
+}
+
+// emit事件 
+interface Emit {
+  (e: 'onChange', value: boolean, width: number): void
+}
+const emit = defineEmits<Emit>()
 
 const collapsed = ref(false);
 
 const changeCollapsed = () => {
   collapsed.value = !collapsed.value;
-  emit('onChange', collapsed.value)
+  emit('onChange', collapsed.value, getAsideWidth())
 };
 
-// emit事件
-interface Emit {
-  (e: 'onChange', value: boolean): void
-}
-const emit = defineEmits<Emit>()
-
+// 获取vuex中的是否展示侧边栏
 const store = useStore()
 const isShowDrawer = computed(() => store.state.isShowDrawer)
 
-const asideWidth = ref('220px')
+const changeHandler = () => { }
+
+const asideWidth = ref(['220px', '70px'])
 const asideMenu = [
   {
     name: "导航",
@@ -206,6 +216,9 @@ const asideMenu = [
     ],
   },
 ];
+
+// 暴露给父级
+defineExpose({ getAsideWidth })
 </script>
 <style lang="less" scoped>
 .aside-wrapper {

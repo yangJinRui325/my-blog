@@ -1,5 +1,5 @@
 <template>
-  <div class="home-wrapper">
+  <div class="home-wrapper inner-wrapper">
     <ul class="banner-inner">
       <li class="banner-item" flex="dir:bottom">
         <h2 class="banner-item-title">这是一个标题呐</h2>
@@ -32,6 +32,10 @@ import ArticleListItem from './article/ArticleListItem.vue';
 .home-wrapper {
   width: 100%;
   padding: 16px;
+  &.inner-wrapper{
+    width: 900px;
+    margin: 0 auto;
+  }
 }
 
 // banner区
