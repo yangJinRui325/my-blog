@@ -1,8 +1,9 @@
 <template>
   <div class="website-container box-shadow-lg" :class="[{ 'header-fixed': isShowHeader }]">
-    <SideBar ref="siderRef" @onChange="sideCollapsedChange"></SideBar>
-    <!-- <div class="website-inner" :class="{ 'website-inner-collapsed': isShowDrawer }"> -->
-    <div class="website-inner" ref="websiteRef">
+    <!-- <SideBar ref="siderRef" @onChange="sideCollapsedChange"></SideBar> -->
+    <SideBar ref="siderRef"></SideBar>
+    <div class="website-inner" :class="{ 'website-inner-collapsed': isShowDrawer }">
+      <!-- <div class="website-inner" ref="websiteRef"> -->
       <Header></Header>
       <div class="website-wrapper">
         <router-view />
@@ -18,15 +19,16 @@ import { useStore } from "vuex";
 import SideBar from "./SideBar.vue";
 import Header from "./Header.vue";
 
-const websiteRef = ref()
+const websiteRef = ref(null)
 const siderRef = ref()
 
+/* // 此处暂不做处理
 function sideCollapsedChange(isCollapsed: boolean, width: number) {
   console.log(width)
   if (isShowDrawer) {
     websiteRef.value.style.marginLeft = width + 'px'
   }
-}
+} */
 
 // 是否展示头部
 const store = useStore()
@@ -36,9 +38,6 @@ const isShowDrawer = computed((): boolean => store.state.isShowDrawer)
 watch(isShowDrawer, (flag) => {
   console.log(1111, siderRef.value)
   console.log(1111, siderRef.value.getAsideWidth())
-  if (isShowDrawer) {
-    websiteRef.value.style.marginLeft = siderRef.value.getAsideWidth() + 'px'
-  }
 })
 
 
@@ -56,8 +55,8 @@ watch(isShowDrawer, (flag) => {
   margin-left: 220px;
   transition: all 0.3s;
 
-  // &-collapsed {
-  //   margin-left: 0;
-  // }
+  &-collapsed {
+    margin-left: 0;
+  }
 }
 </style>

@@ -1,9 +1,5 @@
 <template>
-  <t-divider
-    class="divide-line"
-    :class="`divide-line-${pos}`"
-    :style="{ 'border-color': color, width: realWidth }"
-  />
+  <t-divider class="divide-line" :class="`divide-line-${pos}`" :style="{ 'border-color': color, width: realWidth }" />
 </template>
 <script lang="ts" setup>
 import { computed } from "vue";

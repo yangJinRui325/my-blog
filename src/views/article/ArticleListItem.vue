@@ -176,6 +176,6 @@ const description = '终于毕业了，从去年10月份开始就着月份开始
 }
 
 .article-action {
-  padding-top: 12px;
+  // padding-top: 12px;
 }
 </style>

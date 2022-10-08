@@ -54,9 +54,9 @@
         </template>
       </t-menu-group>
       <!-- 操作栏插槽 -->
-      <template #operations>
+      <!-- <template #operations>
         <t-icon class="t-menu__operations-icon" name="view-list" @click="changeCollapsed" />
-      </template>
+      </template> -->
     </t-menu>
   </aside>
 </template>
@@ -67,16 +67,16 @@ import {
   BacktopRectangleIcon,
   BarcodeIcon,
 } from "tdesign-icons-vue-next";
-import { ref, computed, watch } from "vue";
+import { ref, computed, watch, toRaw } from "vue";
 import { useStore } from "vuex";
 
 // 获取当前侧边栏的宽度
 const asideRef = ref()
 const getAsideWidth = (): number => {
-  return asideRef.value.style.offsetWidth
+  return toRaw(asideRef.value?.offsetWidth)
 }
 
-// emit事件 
+// emit事件
 interface Emit {
   (e: 'onChange', value: boolean, width: number): void
 }
@@ -108,7 +108,7 @@ const asideMenu = [
         id: "secend1-1",
         code: "two_home",
         icon: "home",
-        path: "/"
+        path: "/home"
       },
       {
         name: "笔记",

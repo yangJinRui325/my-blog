@@ -10,6 +10,7 @@
   "dependencies": {
     "@bytemd/plugin-frontmatter": "^1.17.1",
     "@bytemd/plugin-gfm": "^1.17.1",
+    "@bytemd/plugin-highlight": "^1.17.2",
     "@bytemd/vue-next": "^1.17.1",
     "tdesign-vue-next": "^0.17.5",
     "vue": "^3.2.25",
